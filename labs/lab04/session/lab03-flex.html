@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flex</title>
+  <style>
+  :root {
+        /*--theme-color-primary: #8A39E1;*/
+        --theme-color-primary: #313552;
+        /*--theme-color-seconday: #ECC488;*/
+        --theme-color-seconday: #B8405E;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: var(--theme-color-primary);
+    }
+
+    nav > ul {
+        display: flex;
+        gap: 20px;
+        justify-content: flex-end;
+        list-style: none;
+    }
+
+    section {
+        height: 20vh;
+        width: 20%;
+        background-color: var(--theme-color-seconday);
+        border: solid 1pt black;
+    }
+
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 3em;
+    }
+
+    @media (max-width: 800px) {
+        section {
+            width: 45%;
+        }
+    }
+
+    @media (max-width: 500px) {
+        nav > ul {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        section {
+            width: 100%;
+        }
+    }
+
+  </style>
+</head>
+<body>
+<header>
+
+</header>
+<main>
+  <nav>
+    <ul>
+      <li><a href="#">
+        <span class="fa fa-align"></span>
+        Lorem
+      </a></li>
+      <li><a href="#">Ipsum</a></li>
+      <li><a href="#">Dolor</a></li>
+    </ul>
+  </nav>
+  <div class="container">
+  <section>
+    <p></p>
+  </section>
+  <section>
+    <p></p>
+  </section>
+  <section>
+    <p></p>
+  </section>
+  <section>
+    <p></p>
+  </section>
+  </div>
+</main>
+<footer>
+</footer>
+</body>
+</html>
