@@ -55,19 +55,31 @@ class Bank {
     }
 
     toJSON() {
-        return JSON.stringify(this.#accounts);
+        return {
+            accounts: this.#accounts
+        };
 
         // return JSON.stringify(this.#accounts.map(ele => ele.toJSON()));
     }
 
-    fromJSON(accountString) {
-        let data = JSON.parse(accountString).map(ele => JSON.parse(ele));
+    fromJSON(properties) {
+        this.#accounts = properties.accounts;
+    }
 
-        return data.map(function (ele) {
+    serialize() {
+        return JSON.stringify(this);
+    }
+
+    deserialize(accountString) {
+        let data = JSON.parse(accountString);
+
+        return data.accounts.map(function (ele) {
             if (ele["type"] === "Current") {
+            // if (ele["deductFee"]) {
                 // CurrentAccount
                 return new CurrentAccount(ele.balance, ele.accountNo, ele.monthlyFee);
             } else if (ele["type"] === "Saving") {
+            // } else if (ele["distributeBenefit"]) {
                 // SavingAccount
                 return new SavingAccount(ele.balance, ele.accountNo, ele.minBalance);
             } else {

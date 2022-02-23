@@ -22,11 +22,11 @@ class CurrentAccount extends BankAccount {
     }
 
     toJSON() {
-        return JSON.stringify({
-            ...JSON.parse(super.toJSON()),
+        return {
+            ...super.toJSON(),
             monthlyFee: this.#monthlyFee,
             type: this.#type,
-        });
+        };
     }
 }
 
