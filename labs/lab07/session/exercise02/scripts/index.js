@@ -29,12 +29,12 @@ function generateTodoHTML() {
     return todos.map(todo => `
         <div class="todo">
             <div class="todo-title">${todo.title}</div>
-            <input type="checkbox" id="${todo.title}" name="${todo.title}" ${todo.done ? "checked" : ""} onclick="checkTodo(event)" />
-            <i class="fa fa-trash" class="delete-todo" onclick="deleteTodo(event)"></i>
+            <input type="checkbox" id="${todo.title}" name="${todo.title}" ${todo.done ? "checked" : ""} onclick="checkTodo()" />
+            <i class="fa fa-trash" class="delete-todo" onclick="deleteTodo()"></i>
         </div>`).join("");
 }
 
-function checkTodo(event) {
+function checkTodo() {
     const title = event.target.parentElement.children[0].innerText;
     todos.forEach(ele => {
         if (ele.title === title) {
@@ -44,7 +44,7 @@ function checkTodo(event) {
     refreshTodos();
 }
 
-function deleteTodo(event) {
+function deleteTodo() {
     const title = event.target.parentElement.children[0].innerText;
     todos = todos.filter(ele => ele.title !== title);
     refreshTodos();
