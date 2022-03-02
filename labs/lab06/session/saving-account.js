@@ -22,11 +22,11 @@ class SavingAccount extends BankAccount {
     }
 
     toJSON() {
-        return JSON.stringify({
-            ...JSON.parse(super.toJSON()),
+        return {
+            ...super.toJSON(),
             minBalance: this.#minBalance,
             type: this.#type,
-        });
+        };
     }
 }
 

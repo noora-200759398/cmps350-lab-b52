@@ -89,7 +89,16 @@ console.log("Balance:", bank.totalBalance());
 console.log(bank);
 console.log(bank.toJSON());
 
-let s = bank.toJSON();
-let b = new Bank(bank.fromJSON(s));
+let s = bank.serialize();
+console.log("JSON string:", s);
+let b = new Bank(bank.deserialize(s));
 console.log(b);
 console.log(b.toJSON());
+
+import { UnitConverter } from "./unit-converter.js";
+
+let uc = new UnitConverter();
+
+if (uc.kilogramToPound(1.0) === 2.2046) {
+    console.log("kilogramToPound() works!");
+}

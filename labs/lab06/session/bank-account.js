@@ -54,12 +54,10 @@ class BankAccount {
     }
 
     toJSON() {
-        let properties = {
+        return {
             accountNo: this.#accountNo,
             balance: this.#balance,
         };
-
-        return JSON.stringify(properties);
     }
 }
 
