@@ -1,0 +1,18 @@
+{
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "test": "mocha"
+  },
+  "mocha": {
+    "spec": "tests"
+  },
+  "dependencies": {
+    "chai": "latest",
+    "express": "latest",
+    "fs-extra": "latest",
+    "mocha": "latest",
+    "morgan": "latest"
+  }
+}
