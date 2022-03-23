@@ -1,0 +1,29 @@
+[{
+    "number": 1101,
+    "type": "Current",
+    "balance": 500
+}, {
+    "number": 2002,
+    "type": "Saving",
+    "balance": 8000,
+    "minimumBalance": 1000
+}, {
+    "number": 1102,
+    "type": "Current",
+    "balance": 500
+}, {
+    "number": 2003,
+    "type": "Saving",
+    "balance": 9000,
+    "minimumBalance": 1000
+}, {
+    "number": 2004,
+    "type": "Saving",
+    "balance": 400000,
+    "minimumBalance": 1000
+}, {
+    "number": 4444,
+    "type": "Saving",
+    "balance": 250000,
+    "minimumBalance": 1000
+}]
