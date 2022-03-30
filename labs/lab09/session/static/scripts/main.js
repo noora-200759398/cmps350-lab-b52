@@ -1,3 +1,5 @@
+import { Repository } from './repository';
+
 document.addEventListener("DOMContentLoaded", () => {
   if (localStorage.theme === "dark") {
     document.documentElement.classList.add("dark");
