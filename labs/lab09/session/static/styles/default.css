@@ -1,0 +1,173 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css");
+
+:root {
+  --color-background: #eee;
+  --color-text: #111;
+  --color-primary: #b2182b;
+}
+
+:root.dark {
+  --color-background: #111;
+  --color-text: #eee;
+}
+
+:not(:defined) {
+  visibility: hidden;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: var(--color-text);
+  color: var(--color-background);
+}
+
+html,
+input,
+button,
+select,
+textarea {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+body {
+  /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; */
+}
+
+#container {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+
+header {
+  background-color: var(--color-text);
+  color: var(--color-background);
+}
+
+nav {
+  display: flex;
+  flex-flow: row nowrap;
+  /* justify-content: center; */
+  gap: 10px;
+  min-width: 400px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+nav a.selected {
+  color: var(--color-primary);
+}
+
+nav a,
+footer a {
+  color: var(--color-background);
+  text-decoration: none;
+}
+
+#theme {
+  cursor: pointer;
+  margin-left: auto;
+}
+
+main {
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+main>div {
+  color: var(--color-text);
+  min-width: 400px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+footer {
+  background-color: var(--color-text);
+  color: var(--color-background);
+}
+
+footer>div {
+  display: flex;
+  flex-flow: row nowrap;
+  /* justify-content: center; */
+  gap: 10px;
+  min-width: 400px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+footer>div>*:last-child {
+  margin-left: auto;
+}
+
+#egg {
+  opacity: 0;
+}
+
+#egg:hover {
+  opacity: 1;
+}
+
+#accounts {
+  /* display: grid; */
+  /* place-items: center; */
+}
+
+label[for="accounts-type"] {
+  margin-right: 10px;
+}
+
+#accounts-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+#accounts-table td {
+  padding: 10px 0;
+  border-top: 1px solid var(--color-text);
+}
+
+#accounts-table th {
+  padding: 10px 0;
+  text-align: left;
+}
+
+.account-actions {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 10px;
+}
+
+.account-action {
+  cursor: pointer;
+}
+
+#new-account form {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  grid-gap: 10px;
+}
+
+.not-found {
+  display: grid;
+  place-items: center;
+  margin: 0 auto;
+  min-width: 400px;
+  max-width: 800px;
+  height: 100%;
+}
+
+.not-found p {
+  text-align: center;
+  margin-top: 20px;
+}
