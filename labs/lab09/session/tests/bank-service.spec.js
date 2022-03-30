@@ -83,3 +83,19 @@ describe("GET /api/banks", () => {
       });
   });
 });
+
+const deleteId = 1101;
+
+describe("DELETE /api/accounts/:id", () => {
+  it(`it deletes an account with a given id (${deleteId})`, (done) => {
+    chai.request(server)
+      .delete(`/api/accounts/${deleteId}`)
+      .end((err, res) => {
+        expect(err).to.be.null;
+        expect(res).to.have.status(204);
+        expect(res.body).to.be.empty;
+
+        done();
+      });
+  });
+});

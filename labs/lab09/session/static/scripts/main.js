@@ -1,4 +1,6 @@
-import { Repository } from './repository';
+import { Repository } from './repository.js';
+
+const repository = new Repository();
 
 document.addEventListener("DOMContentLoaded", () => {
   if (localStorage.theme === "dark") {
@@ -34,12 +36,6 @@ function changeAccountType(event) {
   document.querySelector("#account-minimum-balance").required = value === "savings";
 }
 
-function urlPathQuery(path, query) {
-  const url = new URL([location.protocol, "//", location.host, path].join(""));
-  url.search = new URLSearchParams(query).toString();
-  return url;
-}
-
 async function createAccount(event) {
   event.preventDefault();
 
@@ -52,36 +48,25 @@ async function createAccount(event) {
     monthlyFee: fields["account-monthly-fee"],
   };
 
-  const response = await fetch(urlPathQuery("/api/accounts", {}), {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json; charset=utf-8"
-    },
-    body: JSON.stringify(account),
-  });
-  const data = await response.json();
-
+  const data = await repository.createAccount(account);
   document.querySelector("#new-account-form").reset();
 }
 
 async function deleteAccount(event, id) {
-  const response = await fetch(urlPathQuery(`/api/accounts/${id}`, {}), {
-    method: "DELETE",
-  });
+  const response = await repository.deleteAccount(id);
   document.querySelector(`tr[data-id="${id}"]`).remove();
+}
+
+async function fetchAccounts(type) {
+  const data = await repository.readAccounts(type);
+  return data;
 }
 
 async function fetchRenderAccounts(type) {
   const data = await fetchAccounts(type);
-
   document.querySelector("#accounts-table > tbody").replaceChildren();
+  // document.querySelector("#accounts-table > tbody").innerHTML = "";
   data.forEach(renderAccount);
-}
-
-async function fetchAccounts(type) {
-  const response = await fetch(urlPathQuery("/api/accounts", { type: type }), { method: 'GET' });
-  const data = await response.json();
-  return data;
 }
 
 function renderAccount(account) {
@@ -95,6 +80,8 @@ function renderAccount(account) {
     element.innerText = account[key];
     accountElement.appendChild(element);
   }
+
+  // `<td>${account.id}</td><td>${account.type}</td><td>${account.balance}</td>`
 
   const actionsElement = document.createElement("td");
   actionsElement.classList.add("account-actions");
