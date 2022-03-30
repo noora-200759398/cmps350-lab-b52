@@ -50,7 +50,7 @@ describe("POST /api/accounts", () => {
     chai.request(server)
       .post("/api/accounts")
       .send({
-          id: 94892,
+          // id: 94892,
           type: "current",
           balance: 997,
           monthlyFee: 0.15,

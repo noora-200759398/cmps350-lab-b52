@@ -10,8 +10,8 @@ export default class BankRepository {
 
   async initialize() {
     try {
-      let data = await fs.readJson(path.join(path.resolve(), "data", "accounts.json"));
-      this.#accounts = data.map(account => this.#accountFromJSON(account));
+      const data = await fs.readJson(path.join(path.resolve(), "data", "accounts.json"));
+      this.#accounts = data.map(account => this.#accountFromObject(account));
     } catch (error) {
       this.#accounts = [];
     }
@@ -25,16 +25,6 @@ export default class BankRepository {
     }
   }
 
-  async readAccount(id) {
-    let index = this.#accounts.map(account => account.id).indexOf(id);
-
-    if (index >= 0) {
-      return this.#accounts[index];
-    } else {
-      return null;
-    }
-  }
-
   async createAccount(account) {
     if ("id" in account) {
       if (this.#accounts.some(acc => acc.id === account.id)) {
@@ -44,18 +34,28 @@ export default class BankRepository {
       account.id = Math.max(...this.#accounts.map(acc => acc.id)) + 1;
     }
 
-    let instance = this.#accountFromJSON(account)
+    const instance = this.#accountFromObject(account)
     this.#accounts.push(instance);
 
     await fs.writeJson(path.join(path.resolve(), "data", "accounts.json"), this.#accounts);
     return instance;
   }
 
-  async updateAccount(id, account) {
-    let index = this.#accounts.map(acc => acc.id).indexOf(id);
+  async readAccount(id) {
+    const index = this.#accounts.map(account => account.id).indexOf(id);
 
     if (index >= 0) {
-      let instance = this.#accountFromJSON({ ...account, id: id });
+      return this.#accounts[index];
+    } else {
+      return null;
+    }
+  }
+
+  async updateAccount(id, account) {
+    const index = this.#accounts.map(acc => acc.id).indexOf(id);
+
+    if (index >= 0) {
+      const instance = this.#accountFromObject({ ...account, id: id });
       this.#accounts[index] = instance;
 
       await fs.writeJson(path.join(path.resolve(), "data", "accounts.json"), this.#accounts);
@@ -66,7 +66,7 @@ export default class BankRepository {
   }
 
   async deleteAccount(id) {
-    let index = this.#accounts.map(acc => acc.id).indexOf(id);
+    const index = this.#accounts.map(acc => acc.id).indexOf(id);
 
     if (index >= 0) {
       this.#accounts.splice(index, 1);
@@ -80,8 +80,8 @@ export default class BankRepository {
 
   async createTransaction(id, transaction) {
     try {
-      let trans = new Transaction(transaction.type, transaction.amount);
-      let index = this.#accounts.map(acc => acc.id).indexOf(id);
+      const trans = new Transaction(transaction.type, transaction.amount);
+      const index = this.#accounts.map(acc => acc.id).indexOf(id);
 
       if (index >= 0) {
         try {
@@ -100,7 +100,7 @@ export default class BankRepository {
     }
   }
 
-  #accountFromJSON(account) {
+  #accountFromObject(account) {
     if (account.type === "current") {
       return new CurrentAccount(account.id, account.type, account.balance, account.monthlyFee);
     }

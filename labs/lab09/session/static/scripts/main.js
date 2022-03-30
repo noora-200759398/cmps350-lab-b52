@@ -17,13 +17,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const newAccountFormElement = document.querySelector("#new-account-form");
   if (newAccountFormElement) {
-    newAccountFormElement.addEventListener("submit", async (e) => await createAccount(e));
-    document.querySelector("#account-type").addEventListener("change", (e) => changeAccountType(e))
+    newAccountFormElement.addEventListener("submit", async (event) => await createAccount(event));
+    document.querySelector("#account-type").addEventListener("change", (event) => changeAccountType(event))
   }
 });
 
-async function createAccount(e) {
-  e.preventDefault();
+function changeAccountType(event) {
+  const value = document.querySelector("#account-type").value;
+  document.querySelector("#account-monthly-fee-label").hidden = value !== "current";
+  document.querySelector("#account-monthly-fee").hidden = value !== "current";
+  document.querySelector("#account-monthly-fee").required = value === "current";
+  document.querySelector("#account-minimum-balance-label").hidden = value !== "savings";
+  document.querySelector("#account-minimum-balance").hidden = value !== "savings";
+  document.querySelector("#account-minimum-balance").required = value === "savings";
+}
+
+function urlPathQuery(path, query) {
+  const url = new URL([location.protocol, "//", location.host, path].join(""));
+  url.search = new URLSearchParams(query).toString();
+  return url;
+}
+
+async function createAccount(event) {
+  event.preventDefault();
 
   const formData = new FormData(document.querySelector("#new-account-form"));
   const fields = Object.fromEntries(formData.entries());
@@ -46,14 +62,11 @@ async function createAccount(e) {
   document.querySelector("#new-account-form").reset();
 }
 
-function changeAccountType(e) {
-  const value = document.querySelector("#account-type").value;
-  document.querySelector("#account-monthly-fee-label").hidden = value !== "current";
-  document.querySelector("#account-monthly-fee").hidden = value !== "current";
-  document.querySelector("#account-monthly-fee").required = value === "current";
-  document.querySelector("#account-minimum-balance-label").hidden = value !== "savings";
-  document.querySelector("#account-minimum-balance").hidden = value !== "savings";
-  document.querySelector("#account-minimum-balance").required = value === "savings";
+async function deleteAccount(event, id) {
+  const response = await fetch(urlPathQuery(`/api/accounts/${id}`, {}), {
+    method: "DELETE",
+  });
+  document.querySelector(`tr[data-id="${id}"]`).remove();
 }
 
 async function fetchRenderAccounts(type) {
@@ -61,12 +74,6 @@ async function fetchRenderAccounts(type) {
 
   document.querySelector("#accounts-table > tbody").replaceChildren();
   data.forEach(renderAccount);
-}
-
-function urlPathQuery(path, query) {
-  const url = new URL([location.protocol, "//", location.host, path].join(""));
-  url.search = new URLSearchParams(query).toString();
-  return url;
 }
 
 async function fetchAccounts(type) {
@@ -92,24 +99,17 @@ function renderAccount(account) {
 
   const updateActionElement = document.createElement("i");
   updateActionElement.classList.add("account-action", "fa", "fa-edit");
-  updateActionElement.addEventListener("click", async (e) => {});
+  updateActionElement.addEventListener("click", async (event) => {});
   actionsElement.appendChild(updateActionElement);
 
   if (account.balance === 0) {
     const deleteActionElement = document.createElement("i");
     deleteActionElement.classList.add("account-action", "fa", "fa-trash");
-    deleteActionElement.addEventListener("click", async (e) => { await deleteAccount(e, account.id) });
+    deleteActionElement.addEventListener("click", async (event) => { await deleteAccount(event, account.id) });
     actionsElement.appendChild(deleteActionElement);
   }
 
   accountElement.appendChild(actionsElement);
 
   document.querySelector("#accounts-table > tbody").appendChild(accountElement);
-}
-
-async function deleteAccount(e, id) {
-  const response = await fetch(urlPathQuery(`/api/accounts/${id}`, {}), {
-    method: "DELETE",
-  });
-  document.querySelector(`tr[data-id="${id}"]`).remove();
 }

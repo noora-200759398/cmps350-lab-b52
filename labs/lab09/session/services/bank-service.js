@@ -10,8 +10,8 @@ export default class BankService {
 
   async readAccounts(req, res) {
     try {
-      let result = await this.#repository.readAccounts(
-        this.#parseType(req.query.type),
+      const result = await this.#repository.readAccounts(
+        this.#parseString(req.query.type),
       );
 
       res.status(200).json(result);
@@ -21,25 +21,9 @@ export default class BankService {
     }
   }
 
-  async readAccount(req, res) {
-    try {
-      let result = await this.#repository.readAccount(
-        this.#parseNumber(req.params.id));
-
-      if (result) {
-        res.status(200).json(result);
-      } else {
-        res.status(404).send("Invalid account id.");
-      }
-    } catch (error) {
-      console.error(error);
-      res.sendStatus(500);
-    }
-  }
-
   async createAccount(req, res) {
     try {
-      let result = await this.#repository.createAccount(
+      const result = await this.#repository.createAccount(
         this.#parseBody(req.body),
       );
 
@@ -54,9 +38,25 @@ export default class BankService {
     }
   }
 
+  async readAccount(req, res) {
+    try {
+      const result = await this.#repository.readAccount(
+        this.#parseNumber(req.params.id));
+
+      if (result) {
+        res.status(200).json(result);
+      } else {
+        res.status(404).send("Invalid account id.");
+      }
+    } catch (error) {
+      console.error(error);
+      res.sendStatus(500);
+    }
+  }
+
   async updateAccount(req, res) {
     try {
-      let result = await this.#repository.updateAccount(
+      const result = await this.#repository.updateAccount(
         this.#parseNumber(req.params.id),
         this.#parseBody(req.body),
       );
@@ -74,7 +74,7 @@ export default class BankService {
 
   async deleteAccount(req, res) {
     try {
-      let result = await this.#repository.deleteAccount(
+      const result = await this.#repository.deleteAccount(
         this.#parseNumber(req.params.id),
       );
 
@@ -91,7 +91,7 @@ export default class BankService {
 
   async createTransaction(req, res) {
     try {
-      let result = await this.#repository.createTransaction(
+      const result = await this.#repository.createTransaction(
         this.#parseNumber(req.params.id),
         this.#parseBody(req.body),
       );
@@ -113,9 +113,9 @@ export default class BankService {
 
   #parseBody(body) {
     if (body) {
-      let result = {};
+      const result = {};
 
-      for (let key in body) {
+      for (const key in body) {
         if (key === "id" ||
           key === "balance" ||
           key === "monthlyFee" ||
@@ -141,7 +141,7 @@ export default class BankService {
     }
   }
 
-  #parseType(type) {
+  #parseString(type) {
     if (type) {
       return String(type);
     } else {
