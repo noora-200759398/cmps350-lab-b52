@@ -97,7 +97,7 @@ export default class BankService {
       );
 
       if (result) {
-        if (typeof result === 'string' || result instanceof String) {
+        if (typeof result === "string" || result instanceof String) {
           // the transaction has failed
           res.status(409).send(result);
         } else {

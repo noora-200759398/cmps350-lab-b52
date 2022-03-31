@@ -7,7 +7,7 @@ import server from "../server.js";
 chai.use(chaiHttp);
 
 describe("GET /api/accounts", () => {
-  it("it returns a JSON array with at least one account", (done) => {
+  it("it returns a JSON array with all accounts", (done) => {
     chai.request(server)
       .get("/api/accounts")
       .end((err, res) => {
@@ -27,7 +27,7 @@ describe("GET /api/accounts", () => {
 });
 
 describe("GET /api/accounts?type=savings", () => {
-  it("it returns a JSON array where all accounts are of type savings", (done) => {
+  it("it returns a JSON array with all the savings accounts", (done) => {
     chai.request(server)
       .get("/api/accounts")
       .query({ type: "savings" })
@@ -85,9 +85,8 @@ describe("GET /api/banks", () => {
 });
 
 const deleteId = 1101;
-
 describe("DELETE /api/accounts/:id", () => {
-  it(`it deletes an account with a given id (${deleteId})`, (done) => {
+  it(`it deletes the account with the provided id (${deleteId})`, (done) => {
     chai.request(server)
       .delete(`/api/accounts/${deleteId}`)
       .end((err, res) => {

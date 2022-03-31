@@ -1,66 +1,80 @@
-export class Repository {
+class Repository {
   async readAccounts(type) {
-    const response = await fetch(
-      this.#urlPathQuery(`/api/accounts`, { type: type }), { method: "GET" },
-    );
+    const response = await fetch(this.#urlPathQuery("/api/accounts", {
+      type: type
+    }), {
+      method: 'GET'
+    });
 
-    const data = await response.json();
-    return data;
-  }
-
-  async createAccount(body) {
-    const response = await fetch(
-      this.#urlPathQuery(`/api/accounts`), {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json; charset=utf-8"
-        },
-        body: JSON.stringify(body),
-      },
-    );
-
-    // if (response.ok) { }
-    // if (response.status === 201) { }
-
-    const data = await response.json();
-    return data;
+    if (response.status === 200) {
+      return await response.json();
+    }
   }
 
   async readAccount(id) {
-    const response = await fetch(
-      this.#urlPathQuery(`/api/account/${id}`), { method: 'GET' },
-    );
+    const response = await fetch(this.#urlPathQuery(`/api/accounts/${id}`, {}), {
+      method: "GET",
+    });
 
-    const data = await response.json();
-    return data;
+    if (response.status === 200) {
+      return await response.json();
+    }
   }
 
-  async updateAccount(body) {
-    const response = await fetch(
-      this.#urlPathQuery(`/api/accounts`), {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json; charset=utf-8"
-        },
-        body: JSON.stringify(body),
+  async createAccount(body) {
+    const response = await fetch(this.#urlPathQuery(`/api/accounts/`, {}), {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8"
       },
-    );
+      body: JSON.stringify(body),
+    });
 
-    // if (response.ok) { }
-    // if (response.status === 201) { }
+    if (response.status === 201) {
+      return await response.json();
+    } else if (response.status === 409) {
+      return await response.text();
+    }
+  }
 
-    const data = await response.json();
-    return data;
+  async updateAccount(id, body) {
+    const response = await fetch(this.#urlPathQuery(`/api/accounts/${id}`, {}), {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      body: JSON.stringify(body),
+    });
+
+    if (response.status === 201) {
+      return await response.json();
+    }
   }
 
   async deleteAccount(id) {
-    const response = await fetch(
-      this.#urlPathQuery(`/api/accounts/${id}`), { method: "DELETE" },
-    );
+    const response = await fetch(this.#urlPathQuery(`/api/accounts/${id}`, {}), {
+      method: "DELETE",
+    });
 
-    // the response has no body
-    // const data = await response.json();
-    return response;
+    if (response.status === 204) {
+      return await response.text();
+    }
+  }
+
+  async createTransaction(id, body) {
+    const response = await fetch(this.#urlPathQuery(`/api/accounts/${id}/transaction`, {}), {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      body: JSON.stringify(body),
+    });
+
+    if (response.status === 201) {
+      return await response.json();
+    } else if (response.status === 409) {
+      return await response.text();
+    }
   }
 
   #urlPathQuery(path, query) {
@@ -69,3 +83,5 @@ export class Repository {
     return url.toString();
   }
 }
+
+export default new Repository();

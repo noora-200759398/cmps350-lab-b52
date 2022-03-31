@@ -24,7 +24,8 @@
       <div id="new-account">
         <form id="new-account-form" method="post">
           <label for="account-type">Type</label>
-          <select id="account-type" name="account-type">
+          <select id="account-type" name="account-type" required>
+            <option value="" selected disabled>—</option>
             <option value="current">Current</option>
             <option value="savings">Savings</option>
           </select>
