@@ -97,12 +97,15 @@ export default class BankService {
       );
 
       if (result) {
-        if (typeof result === 'string' || result instanceof String) {
+        if (typeof result === "string" || result instanceof String) {
+          // the transaction has failed
           res.status(409).send(result);
         } else {
+          // the transaction has succeeded
           res.status(201).location(`/api/accounts/${result.id}`).json(result);
         }
       } else {
+        // the account was not found
         res.status(404).send("Invalid account id.");
       }
     } catch (error) {

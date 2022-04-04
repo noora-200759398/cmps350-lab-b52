@@ -152,7 +152,7 @@ label[for="accounts-type"] {
   cursor: pointer;
 }
 
-#new-account form {
+#new-account form, #new-transaction form {
   display: grid;
   grid-template-columns: 140px 1fr;
   grid-gap: 10px;
