@@ -84,18 +84,15 @@ describe("GET /api/banks", () => {
   });
 });
 
-const deleteId = 1102;
+const deleteId = 1101;
 describe("DELETE /api/accounts/:id", () => {
   it(`it deletes the account with the provided id (${deleteId})`, (done) => {
     chai.request(server)
       .delete(`/api/accounts/${deleteId}`)
       .end((err, res) => {
         expect(err).to.be.null;
-        expect(res.status).to.be.oneOf([ 204, 404 ]);
-
-        if (res.status === 204) {
-          expect(res.body).to.be.empty;
-        }
+        expect(res).to.have.status(204);
+        expect(res.body).to.be.empty;
 
         done();
       });

@@ -9,7 +9,7 @@ export default class BankRepository {
   async initialize() {
     try {
       const hostname = "localhost";
-      const port = 27017;
+      const port = "27017";
       const database = "bank";
       const uri = `mongodb://${hostname}:${port}/${database}`;
 
@@ -43,19 +43,21 @@ export default class BankRepository {
 
   async createAccount(account) {
     if ("id" in account) {
-      const result = await Account.findOne({ id: account.id }, { _id: 0, __v: 0 });
+      const result = await Account.findOne({ id: account.id });
 
       if (result) {
         return null;
       } else {
-        // const doc = new Account(account);
-        // return await doc.save();
-        return await Account.create(account);
+        // const accout = new Account(account);
+        // return await account.save();
+        await Account.create(account);
+        return Account.findOne({ id: account.id }, { _id: 0, __v: 0 });
       }
     } else {
       // const maxId = await this.#getMaxId();
-      const max = await Account.findOne().sort({ id: -1 });
-      return await Account.create({ ...account, id: Number(max.id) + 1 });
+      const result = await Account.findOne({}).sort({ id: -1 });
+      await Account.create({ ...account, id: result.id + 1 });
+      return Account.findOne({ id: result.id + 1 }, { _id: 0, __v: 0 });
     }
   }
 
@@ -64,10 +66,10 @@ export default class BankRepository {
   }
 
   async updateAccount(id, account) {
-    const result = await Account.updateOne({ ...account, id: id });
+    const result = await Account.updateOne({ id: id }, account);
 
     if (result.matchedCount !== 0) {
-      // if (result.modifiedCount !== 0) {
+      // if (result.modifiedCount === 0) { } // not updated
       return await Account.findOne({ id: id }, { _id: 0, __v: 0 });
     } else {
       return null;
@@ -81,16 +83,18 @@ export default class BankRepository {
 
   async createTransaction(id, transaction) {
     try {
-      const acct = await Account.findOne({ id: id });
+      const account = await Account.findOne({ id: id });
 
-      if (acct) {
-        const trans = new Transaction({ ...transaction, account: id });
-        trans.execute(acct);
-        await trans.save();
-        // await Transaction.create({ ...transaction, account: id });
-        await acct.save();
-        const result = await Account.findOne({ id: id }, { _id: 0, __v: 0 });
-        return result;
+      if (account) {
+        try {
+          const trans = await Transaction.create({ ...transaction, account: id });
+          trans.execute(account);
+          await account.save();
+
+          return await Account.findOne({ id: id }, { _id: 0, __v: 0 });
+        } catch (error) {
+          return error;
+        }
       } else {
         return null;
       }
@@ -100,38 +104,49 @@ export default class BankRepository {
   }
 
   async readTransactions() {
-    return await Transaction.find({}, { _id: 0, __v: 0 }).sort({ account: 1 });
+    return await Transaction.find({}, { _id: 0, __v: 0 }).sort({ date: 1 });
   }
 
   async getTotalBalance(type) {
     const types = !type || type === "all" ? ["current", "savings"] : [type];
+    //     const result = await Account.find();
+    //     console.log(result);
+    //
+    //     return {
+    //       total: result.reduce((acc, ele) => acc + ele.balance, 0),
+    //       count: result.length,
+    //     };
 
-    return await Account.aggregate([{
+    const result = await Account.aggregate([{
       $match: {
-        type: {
-          $in: types,
-        },
         balance: {
           $gt: 0,
         },
-      },
+        type: {
+          $in: types,
+        },
+      }
     }, {
       $group: {
+        // _id: "$type",
         _id: null,
         total: {
-          $sum: "$balance"
+          $sum: "$balance",
         },
         count: {
-          $sum: 1
+          $sum: 1,
         }
-      }
+      },
     }, {
       $project: {
         _id: 0,
         total: 1,
         count: 1,
-      }
+      },
     }]);
+
+    // delete result[0]._id;
+    return result[0];
   }
 
   //   async #getMaxId() {

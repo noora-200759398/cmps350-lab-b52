@@ -1,73 +1,61 @@
-import mongoose from "mongoose";
+ import mongoose from "mongoose";
 
-const schema = mongoose.Schema({
-  id: {
-    type: String,
-    required: [true, "id is a required field."],
-    unique: true,
-  },
-  type: {
-    type: String,
-    enum: ["current", "savings"],
-    required: true,
-  },
-  balance: {
-    type: Number,
-    required: true,
-    min: 0,
-  },
-  date: {
-    type: Date,
-    default: Date.now,
-  },
-  monthlyFee: {
-    type: Number,
-    min: 0,
-  },
-  minimumBalance: {
-    type: Number,
-    min: 0,
-  },
-  // _id: { type: mongoose.ObjectId, select: false },
-  // __v: { type: Number, select: false },
-});
+ const schema = mongoose.Schema({
+    id: {
+       type: Number,
+       required: [true, "id is a required field."],
+       unique: true,
+    },
+    type: {
+       type: String,
+       enum: ["current", "savings"],
+       required: true,
+    },
+    balance: {
+       type: Number,
+       min: 0,
+       required: true,
+    },
+    monthlyFee: {
+       type: Number,
+       min: 0,
+    },
+    minimumBalance: {
+       type: Number,
+       min: 0,
+    },
+    date: {
+       type: Date,
+       default: Date.now,
+    },
+ });
 
-// schema.set('toObject', {
-//   transform: function(doc, ret) {
-//     // ret.id = ret._id;
-//     delete ret._id;
-//     delete ret.__v;
-//   }
-// });
+ //  schema.virtual("minBalance").get(function() {
+ //     return this.type === "savings" ? 1000 : null;
+ //  });
+ //
+ //  schema.virtual("monthlyFee").get(function() {
+ //     return this.type === "current" ? 15 : null;
+ //  });
 
-// schema.virtual("minBal").get(function() {
-//   return this.type === "savings" ? 1000 : null;
-// });
-//
-// schema.virtual("monFee").get(function() {
-//   return this.type === "current" ? 15 : null;
-// });
+ schema.virtual("wealth").get(function() {
+    if (this.balance >= 1e6 && this.balance < 1e7) {
+       return "rich";
+    } else if (this.balance >= 1e7 && this.balance < 1e8) {
+       return "super rich";
+    }
+ });
 
-schema.virtual("wealthStatus").get(function() {
-  if (this.balance >= 1e6 && this.balance < 1e7) {
-    return "wealthy";
-  }
+ schema.virtual("vvvip").get(function() {
+    return this.balance >= 1e12;
+ });
 
-  if (this.balance >= 1e7 && this.balance < 1e8) {
-    return "super wealthy";
-  }
+ schema.methods.deposit = function(amount) {
+    this.balance += amount;
+ }
 
-  if (this.balance >= 1e8 && this.balance < 1e9) {
-    return "extremely wealthy";
-  }
-});
+ schema.methods.withdraw = function(amount) {
+    this.balance -= amount;
+ }
 
-schema.methods.deposit = function(amount) {
-  this.balance += amount;
-};
-
-schema.methods.withdraw = function(amount) {
-  this.balance -= amount;
-};
-
-export default mongoose.model("Account", schema);
+ export default mongoose.model("Account", schema);
