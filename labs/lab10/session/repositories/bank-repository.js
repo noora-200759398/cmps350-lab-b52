@@ -13,22 +13,23 @@ export default class BankRepository {
       const database = "bank";
       const uri = `mongodb://${hostname}:${port}/${database}`;
 
-      mongoose.connect(uri, function(error) {
+      mongoose.connect(uri, async function(error) {
         if (error) {
           console.error(error);
+        } else {
+          const count = await Account.countDocuments({});
+
+          if (!count) {
+            const data = await fs.readJson(path.join(path.resolve(), "data", "accounts.json"));
+            data.forEach(async (ele) => {
+              // ele = { ...ele, _id: ele.id };
+              // const account = new Account(ele);
+              // await account.save();
+              await Account.create(ele);
+            });
+          }
         }
       });
-
-      const accounts = await Account.find();
-      if (!accounts.length) {
-        const data = await fs.readJson(path.join(path.resolve(), "data", "accounts.json"));
-        data.forEach(async (ele) => {
-          // ele = { ...ele, _id: ele.id };
-          // const account = new Account(ele);
-          // await account.save();
-          await Account.create(ele);
-        });
-      }
     } catch (error) {}
   }
 
@@ -87,7 +88,7 @@ export default class BankRepository {
 
       if (account) {
         try {
-          const trans = await Transaction.create({ ...transaction, account: id });
+          const trans = await Transaction.create({ ...transaction, account: account._id });
           trans.execute(account);
           await account.save();
 
