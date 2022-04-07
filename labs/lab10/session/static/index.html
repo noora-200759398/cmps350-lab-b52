@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Bank Accounts</title>
+
+  <link rel="stylesheet" href="/styles/default.css" />
+  <script type="module" src="/scripts/main.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <header>
+      <nav>
+        <a href="/" class="selected"><i class="fa fa-home"></i></a>
+        <a href="/new-account">New Account</a>
+        <a href="/new-transaction">New Transaction</a>
+        <a id="theme"><i class="fa fa-brush"></i></a>
+      </nav>
+    </header>
+
+    <main>
+      <div id="accounts">
+        <label for="accounts-type">Account type</label>
+        <select id="accounts-type" name="accounts-type">
+          <option value="all" selected>All</option>
+          <option value="current">Current</option>
+          <option value="savings">Savings</option>
+        </select>
+
+        <table id="accounts-table">
+          <thead>
+            <tr>
+              <th>Number</th>
+              <th>Type</th>
+              <th>Balance</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+    <footer>
+      <div>
+        <p>&copy; 2022 <a href="https://qu.edu.qa">Qatar University</a></p>
+        <a id="egg" href="/egg"><i class="fa fa-egg"></i></a>
+      </div>
+    </footer>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+[{
+    "id": 1101,
+    "type": "current",
+    "balance": 500,
+    "monthlyFee": 0.1
+}, {
+    "id": 2002,
+    "type": "savings",
+    "balance": 8000,
+    "minimumBalance": 1000
+}, {
+    "id": 1102,
+    "type": "current",
+    "balance": 500,
+    "monthlyFee": 0.15
+}, {
+    "id": 2003,
+    "type": "savings",
+    "balance": 9000,
+    "minimumBalance": 1000
+}, {
+    "id": 2004,
+    "type": "savings",
+    "balance": 400000,
+    "minimumBalance": 1000
+}, {
+    "id": 4444,
+    "type": "savings",
+    "balance": 250000,
+    "minimumBalance": 1000
+}]
