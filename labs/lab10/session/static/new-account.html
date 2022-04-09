@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>New Account</title>
+
+  <link rel="stylesheet" href="/styles/default.css" />
+  <script type="module" src="/scripts/main.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <header>
+      <nav>
+        <a href="/"><i class="fa fa-home"></i></a>
+        <a href="/new-account" class="selected">New Account</a>
+        <a href="/new-transaction">New Transaction</a>
+        <a id="theme"><i class="fa fa-brush"></i></a>
+      </nav>
+    </header>
+
+    <main>
+      <div id="new-account">
+        <form id="new-account-form" method="post">
+          <label for="account-type">Type</label>
+          <select id="account-type" name="account-type" required>
+            <option value="" selected disabled>—</option>
+            <option value="current">Current</option>
+            <option value="savings">Savings</option>
+          </select>
+          <label for="account-balance">Balance</label>
+          <input id="account-balance" name="account-balance" type="number" min="0" step="0.01" required />
+          <label id="account-monthly-fee-label" for="account-monthly-fee">Monthly fee</label>
+          <input id="account-monthly-fee" name="account-monthly-fee" type="number" min="0" step="0.01" required />
+          <label id="account-minimum-balance-label" for="account-minimum-balance" hidden>Minimum balance</label>
+          <input id="account-minimum-balance" name="account-minimum-balance" type="number" min="0" step="0.01" hidden />
+          <div></div>
+          <div><input id="submit" type="submit" /></div>
+        </form>
+      </div>
+    </main>
+
+    <footer>
+      <div>
+        <p>&copy; 2022 <a href="https://qu.edu.qa">Qatar University</a></p>
+        <a id="egg" href="/egg"><i class="fa fa-egg"></i></a>
+      </div>
+    </footer>
+  </div>
+</body>
+
+</html>
