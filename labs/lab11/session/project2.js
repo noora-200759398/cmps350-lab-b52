@@ -82,6 +82,14 @@ function setInstructorName(courses, callback) {
 				c.instructorName = s.firstname + " " + s.lastname;
 			}
 
+			// courses = courses.map(course => {
+			// 	const instructor = staff.find(staff => staff.staffNo === course.instructorId);
+			// 	return {
+			// 		...course,
+			// 		instructorName: instructor.firstname + " " + instructor.lastname,
+			// 	};
+			// });
+
 			callback(null, courses);
 		}
 	});
