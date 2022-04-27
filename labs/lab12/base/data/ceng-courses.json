@@ -1,0 +1,837 @@
+[
+  {
+    "program": "AUP",
+    "code": "ARCT 110",
+    "name": "Graphic Communication I"
+  },
+  {
+    "program": "AUP",
+    "code": "ARCT 111",
+    "name": "Graphic Communication II"
+  },
+  {
+    "program": "AUP",
+    "code": "ARCT 120",
+    "name": "Introduction to Architecture and Allied Arts"
+  },
+  {
+    "program": "AUP",
+    "code": "ARCT 210",
+    "name": "Perspective, Shade and Shadow"
+  },
+  {
+    "program": "AUP",
+    "code": "ARCT 211",
+    "name": "Architectural Design Studio I"
+  },
+  {
+    "program": "AUP",
+    "code": "ARCT 212",
+    "name": "Architectural Design Studio II"
+  },
+  {
+    "program": "AUP",
+    "code": "ARCT 310",
+    "name": "Architectural Design Studio III"
+  },
+  {
+    "program": "AUP",
+    "code": "ARCT 311",
+    "name": "Architectural Design Studio IV"
+  },
+  {
+    "program": "AUP",
+    "code": "ARCT 410",
+    "name": "Architectural Design Studio V"
+  },
+  {
+    "program": "AUP",
+    "code": "ARCT 411",
+    "name": "Architectural Design Studio VI"
+  },
+  {
+    "program": "AUP",
+    "code": "ARCT 510",
+    "name": "Comprehensive Design Studio"
+  },
+  {
+    "program": "AUP",
+    "code": "ARCT 511",
+    "name": "Senior Project Preparation and Programming"
+  },
+  {
+    "program": "AUP",
+    "code": "ARCT 512",
+    "name": "Senior Project"
+  },
+  {
+    "program": "CVE",
+    "code": "CVEN 210",
+    "name": "Properties and Testing of Materials"
+  },
+  {
+    "program": "CVE",
+    "code": "CVEN 212",
+    "name": "Fluid Mechanics"
+  },
+  {
+    "program": "CVE",
+    "code": "CVEN 213",
+    "name": "Statics"
+  },
+  {
+    "program": "CVE",
+    "code": "CVEN 214",
+    "name": "Strength of Materials"
+  },
+  {
+    "program": "CVE",
+    "code": "CVEN 220",
+    "name": "Analysis of Structures"
+  },
+  {
+    "program": "CVE",
+    "code": "CVEN 230",
+    "name": "Geotechnical Engineering"
+  },
+  {
+    "program": "CVE",
+    "code": "CVEN 270",
+    "name": "Surveying for Construction"
+  },
+  {
+    "program": "CVE",
+    "code": "CVEN 320",
+    "name": "Design of Reinforced Concrete Members"
+  },
+  {
+    "program": "CVE",
+    "code": "CVEN321",
+    "name": "Analysis of Indeterminate Structures"
+  },
+  {
+    "program": "CVE",
+    "code": "CVEN 330",
+    "name": "Foundation Engineering I"
+  },
+  {
+    "program": "CVE",
+    "code": "CVEN 340",
+    "name": "Analysis and Design of Hydraulic Systems"
+  },
+  {
+    "program": "CVE",
+    "code": "CVEN 350",
+    "name": "Environmental Engineering"
+  },
+  {
+    "program": "CVE",
+    "code": "CVEN 360",
+    "name": "Highway Engineering"
+  },
+  {
+    "program": "CVE",
+    "code": "CVEN 380",
+    "name": "Construction Engineering"
+  },
+  {
+    "program": "CVE",
+    "code": "CVEN 381",
+    "name": "Contracts, Specifications, and Local Regulations"
+  },
+  {
+    "program": "CVE",
+    "code": "CVEN 399",
+    "name": "Practical Training"
+  },
+  {
+    "program": "CVE",
+    "code": "CVEN 401",
+    "name": "Civil Engineering Design Project I"
+  },
+  {
+    "program": "CVE",
+    "code": "CVEN 402",
+    "name": "Civil Engineering Design Project II"
+  },
+  {
+    "program": "CVE",
+    "code": "CVEN 420",
+    "name": "Design of Steel Structures"
+  },
+  {
+    "program": "CHE",
+    "code": "CHEM 102",
+    "name": "General Chemistry II"
+  },
+  {
+    "program": "CHE",
+    "code": "CHEM 104",
+    "name": "Experimental General Chemistry II"
+  },
+  {
+    "program": "CHE",
+    "code": "CHEM 209",
+    "name": "Fundamentals in Organic Chemistry"
+  },
+  {
+    "program": "CHE",
+    "code": "CHEM 241",
+    "name": "Physical Chemistry I"
+  },
+  {
+    "program": "CHE",
+    "code": "CHEM 242",
+    "name": "Experimental Physical Chemistry I"
+  },
+  {
+    "program": "CHE",
+    "code": "CHEM 341",
+    "name": "Physical Chemistry II"
+  },
+  {
+    "program": "CHE",
+    "code": "CHME 201",
+    "name": "Introduction to Chemical Engineering I"
+  },
+  {
+    "program": "CHE",
+    "code": "CHME 202",
+    "name": "Introduction to Chemical Engineering II"
+  },
+  {
+    "program": "CHE",
+    "code": "CHME 212",
+    "name": "Chemical Engineering Thermodynamics I"
+  },
+  {
+    "program": "CHE",
+    "code": "CHME 213",
+    "name": "Fluid Mechanics"
+  },
+  {
+    "program": "CHE",
+    "code": "CHME 311",
+    "name": "Heat Transfer"
+  },
+  {
+    "program": "CHE",
+    "code": "CHME 312",
+    "name": "Chemical Engineering Thermodynamics II"
+  },
+  {
+    "program": "CHE",
+    "code": "CHME 313",
+    "name": "Mass Transfer I"
+  },
+  {
+    "program": "CHE",
+    "code": "CHME 314",
+    "name": "Chemical Reaction Engineering"
+  },
+  {
+    "program": "CHE",
+    "code": "CHME 315",
+    "name": "Mass Transfer II"
+  },
+  {
+    "program": "CHE",
+    "code": "CHME 324",
+    "name": "Chemical Engineering Laboratory I"
+  },
+  {
+    "program": "CHE",
+    "code": "CHME 325",
+    "name": "Chemical Engineering Laboratory II"
+  },
+  {
+    "program": "CHE",
+    "code": "CHME 399",
+    "name": "Practical Training"
+  },
+  {
+    "program": "CHE",
+    "code": "CHME 415",
+    "name": "Computer Methods in Chemical Engineering"
+  },
+  {
+    "program": "CHE",
+    "code": "CHME 421",
+    "name": "Plant Design I"
+  },
+  {
+    "program": "CHE",
+    "code": "CHME 422",
+    "name": "Plant Design II"
+  },
+  {
+    "program": "CHE",
+    "code": "CHME 423",
+    "name": "Process Control"
+  },
+  {
+    "program": "CHE",
+    "code": "CHME 426",
+    "name": "Chemical Engineering Laboratory III"
+  },
+  {
+    "program": "CE",
+    "code": "CMPE 261",
+    "name": "Digital Logic Design"
+  },
+  {
+    "program": "CE",
+    "code": "CMPE 262",
+    "name": "Digital Logic Design Laboratory"
+  },
+  {
+    "program": "CE",
+    "code": "CMPE 263",
+    "name": "Computer Architecture and Organization I"
+  },
+  {
+    "program": "CE",
+    "code": "CMPE 363",
+    "name": "Computer Architecture and Organization II"
+  },
+  {
+    "program": "CE",
+    "code": "CMPE 364",
+    "name": "Microprocessors based Design"
+  },
+  {
+    "program": "CE",
+    "code": "CMPE 365",
+    "name": "Microprocessors based Design Laboratory"
+  },
+  {
+    "program": "CE",
+    "code": "CMPE 370",
+    "name": "Computer Engineering Practicum"
+  },
+  {
+    "program": "CE",
+    "code": "CMPE 455",
+    "name": "Data Communication and Computer Networks I"
+  },
+  {
+    "program": "CE",
+    "code": "CMPE 456",
+    "name": "Data Communication and Computer Networks I Laboratory"
+  },
+  {
+    "program": "CE",
+    "code": "CMPE 457",
+    "name": "Data Communication and Computer Networks II"
+  },
+  {
+    "program": "CE",
+    "code": "CMPE 462",
+    "name": "Computer Interfacing"
+  },
+  {
+    "program": "CE",
+    "code": "CMPE 476",
+    "name": "Digital Signal Processing"
+  },
+  {
+    "program": "CE",
+    "code": "CMPE 478",
+    "name": "Digital Signal Processing Laboratory"
+  },
+  {
+    "program": "CE",
+    "code": "CMPE 498",
+    "name": "Design Project I"
+  },
+  {
+    "program": "CE",
+    "code": "CMPE 499",
+    "name": "Design Project II"
+  },
+  {
+    "program": "CE",
+    "code": "CMPS 200",
+    "name": "Computer Ethics"
+  },
+  {
+    "program": "CE",
+    "code": "CMPE 475",
+    "name": "Artificial Intelligence"
+  },
+  {
+    "program": "CE",
+    "code": "CMPE 480",
+    "name": "Computer Vision"
+  },
+  {
+    "program": "CE",
+    "code": "CMPE 482",
+    "name": "Multimedia Networks"
+  },
+  {
+    "program": "CS",
+    "code": "CMPS 205",
+    "name": "Discrete Structures for Computing"
+  },
+  {
+    "program": "CS",
+    "code": "CMPS 151",
+    "name": "Programming Concepts"
+  },
+  {
+    "program": "CS",
+    "code": "CMPS 152",
+    "name": "Programming Concepts Laboratory"
+  },
+  {
+    "program": "CS",
+    "code": "CMPS 251",
+    "name": "Object-Oriented Programming"
+  },
+  {
+    "program": "CS",
+    "code": "CMPS 252",
+    "name": "Object-Oriented Programming Laboratory"
+  },
+  {
+    "program": "CS",
+    "code": "CMPS 303",
+    "name": "Data Structures"
+  },
+  {
+    "program": "CS",
+    "code": "CMPS 311",
+    "name": "Object Oriented Modeling"
+  },
+  {
+    "program": "CS",
+    "code": "CMPS 323",
+    "name": "Design and Analysis of Algorithms"
+  },
+  {
+    "program": "CS",
+    "code": "CMPS 351",
+    "name": "Fundamentals of Database Systems"
+  },
+  {
+    "program": "CS",
+    "code": "CMPS 352",
+    "name": "Fundamentals of Database Systems Laboratory"
+  },
+  {
+    "program": "CS",
+    "code": "CMPS 356",
+    "name": "Software Development of Enterprise Applications"
+  },
+  {
+    "program": "CS",
+    "code": "CMPS 405",
+    "name": "Operating Systems"
+  },
+  {
+    "program": "CS",
+    "code": "CMPS 406",
+    "name": "Operating Systems Laboratory"
+  },
+  {
+    "program": "CS",
+    "code": "CMPS 411",
+    "name": "Software Engineering"
+  },
+  {
+    "program": "CS",
+    "code": "CMPS 493",
+    "name": "Senior Project I"
+  },
+  {
+    "program": "CS",
+    "code": "CMPS 499",
+    "name": "Senior Project II"
+  },
+  {
+    "program": "CS",
+    "code": "CMPS 373",
+    "name": "Computer Graphics"
+  },
+  {
+    "program": "CS",
+    "code": "CMPS 453",
+    "name": "Data Mining"
+  },
+  {
+    "program": "CS",
+    "code": "CMPS 454",
+    "name": "Wireless Networks and Applications"
+  },
+  {
+    "program": "CS",
+    "code": "CMPS 465",
+    "name": "Parallel and Distributed Systems"
+  },
+  {
+    "program": "CS",
+    "code": "CMPS 485",
+    "name": "Computer Security"
+  },
+  {
+    "program": "CS",
+    "code": "CMPS 312",
+    "name": "Mobile Application Development"
+  },
+  {
+    "program": "CS",
+    "code": "CMPS 345",
+    "name": "Automata and Formal Languages"
+  },
+  {
+    "program": "CS",
+    "code": "CMPS 393",
+    "name": "Modeling and Simulation"
+  },
+  {
+    "program": "CS",
+    "code": "CMPS 399",
+    "name": "Practical Training"
+  },
+  {
+    "program": "CS",
+    "code": "CMPS 433",
+    "name": "Multimedia Systems"
+  },
+  {
+    "program": "CS",
+    "code": "CMPS 445",
+    "name": "Compiler Construction"
+  },
+  {
+    "program": "CS",
+    "code": "CMPS 451",
+    "name": "Database Management Systems"
+  },
+  {
+    "program": "CS",
+    "code": "CMPS 453",
+    "name": "Data Mining"
+  },
+  {
+    "program": "CS",
+    "code": "CMPS 466",
+    "name": "Information Retrieval"
+  },
+  {
+    "program": "CS",
+    "code": "CMPS 497",
+    "name": "Special Topics in Computing"
+  },
+  {
+    "program": "EE",
+    "code": "ELEC 202",
+    "name": "Electric Circuits II"
+  },
+  {
+    "program": "EE",
+    "code": "ELEC 203",
+    "name": "Electric Circuits II Lab"
+  },
+  {
+    "program": "EE",
+    "code": "ELEC 231",
+    "name": "Fundamentals of Electronics"
+  },
+  {
+    "program": "EE",
+    "code": "ELEC 261",
+    "name": "Digital Systems Design"
+  },
+  {
+    "program": "EE",
+    "code": "ELEC 262",
+    "name": "Digital Systems Design Lab"
+  },
+  {
+    "program": "EE",
+    "code": "ELEC 299",
+    "name": "Electrical Engineering Seminar"
+  },
+  {
+    "program": "EE",
+    "code": "ELEC 311",
+    "name": "Electromagnetics"
+  },
+  {
+    "program": "EE",
+    "code": "ELEC 312",
+    "name": "Electric Machines"
+  },
+  {
+    "program": "EE",
+    "code": "ELEC 313",
+    "name": "Electric Machines Lab"
+  },
+  {
+    "program": "EE",
+    "code": "ELEC 321",
+    "name": "Power Systems Analysis"
+  },
+  {
+    "program": "EE",
+    "code": "ELEC 333",
+    "name": "Electronics Engineering"
+  },
+  {
+    "program": "EE",
+    "code": "ELEC 334",
+    "name": "Electronics Engineering Lab"
+  },
+  {
+    "program": "EE",
+    "code": "ELEC 341",
+    "name": "Communications Engineering"
+  },
+  {
+    "program": "EE",
+    "code": "ELEC 342",
+    "name": "Communications Engineering Lab"
+  },
+  {
+    "program": "EE",
+    "code": "ELEC 351",
+    "name": "Signals and Systems"
+  },
+  {
+    "program": "EE",
+    "code": "ELEC 352",
+    "name": "Control Systems"
+  },
+  {
+    "program": "EE",
+    "code": "ELEC 366",
+    "name": "Embedded Systems"
+  },
+  {
+    "program": "EE",
+    "code": "ELEC 367",
+    "name": "Embedded Systems Lab"
+  },
+  {
+    "program": "EE",
+    "code": "ELEC 371",
+    "name": "Sensors and Instrumentation"
+  },
+  {
+    "program": "EE",
+    "code": "ELEC 375",
+    "name": "Biomedical Engineering"
+  },
+  {
+    "program": "EE",
+    "code": "ELEC 399",
+    "name": "Practical Training"
+  },
+  {
+    "program": "EE",
+    "code": "ELEC 498",
+    "name": "Senior Design Project I"
+  },
+  {
+    "program": "EE",
+    "code": "ELEC 499",
+    "name": "Senior Design Project II"
+  },
+  {
+    "program": "ISE",
+    "code": "MECH 210",
+    "name": "Statics & Dynamics"
+  },
+  {
+    "program": "ISE",
+    "code": "GENG 231",
+    "name": "Materials Science"
+  },
+  {
+    "program": "ISE",
+    "code": "MECH 223",
+    "name": "Solid Mechanics"
+  },
+  {
+    "program": "ISE",
+    "code": "MECH 230",
+    "name": "Manufacturing Processes"
+  },
+  {
+    "program": "ISE",
+    "code": "IENG 210",
+    "name": "Work Methods and Measurements"
+  },
+  {
+    "program": "ISE",
+    "code": "IENG 260",
+    "name": "Thermodynamics"
+  },
+  {
+    "program": "ISE",
+    "code": "IENG 310",
+    "name": "Facility Planning and Layout"
+  },
+  {
+    "program": "ISE",
+    "code": "IENG 320",
+    "name": "Statistical Quality Control"
+  },
+  {
+    "program": "ISE",
+    "code": "IENG 330",
+    "name": "Operations Research"
+  },
+  {
+    "program": "ISE",
+    "code": "IENG 337",
+    "name": "Production Planning and Inventory Control"
+  },
+  {
+    "program": "ISE",
+    "code": "IENG 350",
+    "name": "Computer Simulation Systems"
+  },
+  {
+    "program": "ISE",
+    "code": "IENG 410",
+    "name": "Ergonomics and Safety Engineering"
+  },
+  {
+    "program": "ISE",
+    "code": "IENG 420",
+    "name": "Quality Management"
+  },
+  {
+    "program": "ISE",
+    "code": "IENG 450",
+    "name": "Production Automation"
+  },
+  {
+    "program": "ISE",
+    "code": "IENG 452",
+    "name": "Information Systems Engineering"
+  },
+  {
+    "program": "ISE",
+    "code": "IENG 460",
+    "name": "Manufacturing Systems Design"
+  },
+  {
+    "program": "ISE",
+    "code": "IENG 481",
+    "name": "Project Engineering"
+  },
+  {
+    "program": "ISE",
+    "code": "IENG 498",
+    "name": "Industrial Systems Design"
+  },
+  {
+    "program": "ME",
+    "code": "MECH 221",
+    "name": "Engineering Mechanics I, Statics"
+  },
+  {
+    "program": "ME",
+    "code": "MECH 222",
+    "name": "Engineering Mechanics II, Dynamics"
+  },
+  {
+    "program": "ME",
+    "code": "GENG 231",
+    "name": "Material Science"
+  },
+  {
+    "program": "ME",
+    "code": "MATH 231",
+    "name": "Linear Algebra"
+  },
+  {
+    "program": "ME",
+    "code": "MECH 213",
+    "name": "Engineering Measurements"
+  },
+  {
+    "program": "ME",
+    "code": "MECH 223",
+    "name": "Solid Mechanics"
+  },
+  {
+    "program": "ME",
+    "code": "MECH 230",
+    "name": "Manufacturing Processes"
+  },
+  {
+    "program": "ME",
+    "code": "MECH 241",
+    "name": "Thermofluids"
+  },
+  {
+    "program": "ME",
+    "code": "MECH 321",
+    "name": "Mechanical Mechanisms"
+  },
+  {
+    "program": "ME",
+    "code": "MECH 322",
+    "name": "Mechanical Vibrations"
+  },
+  {
+    "program": "ME",
+    "code": "MECH 323",
+    "name": "Mechanical Design I"
+  },
+  {
+    "program": "ME",
+    "code": "MECH 342",
+    "name": "Thermodynamics"
+  },
+  {
+    "program": "ME",
+    "code": "MECH 343",
+    "name": "Fluid Mechanics"
+  },
+  {
+    "program": "ME",
+    "code": "MECH 344",
+    "name": "Heat Transfer"
+  },
+  {
+    "program": "ME",
+    "code": "MECH 361",
+    "name": "Control Systems"
+  },
+  {
+    "program": "ME",
+    "code": "MECH 399",
+    "name": "Practical Training"
+  },
+  {
+    "program": "ME",
+    "code": "MECH 421",
+    "name": "Mechanical Design II"
+  },
+  {
+    "program": "ME",
+    "code": "MECH 441",
+    "name": "Energy Systems Laboratory"
+  },
+  {
+    "program": "ME",
+    "code": "MECH 448",
+    "name": "Design of Energy Systems"
+  },
+  {
+    "program": "ME",
+    "code": "MECH 480",
+    "name": "Senior Project I"
+  },
+  {
+    "program": "ME",
+    "code": "MECH 490",
+    "name": "Senior Project II"
+  }
+]
